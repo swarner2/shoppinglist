@@ -1,13 +1,22 @@
 <!DOCTYPE html>
-<html ng-app="myApp">
+<html ng-app="shoppingList">
 <head>
   <link rel="stylesheet" type="text/css" href="styles/style.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"</script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
 </head>
 <body>
-  <div class="row">
-    <ul>{{1 + 2}}</ul>
+  <div ng-controller="getData">
+    <p>Search : <input type="text" ng-model="searchItem"></p>
+    <button ng-click="myFunc(searchItem)"> Click Me! </button>
+    <ul ng-repeat="list in data">
+      <ul> {{list.name}}
+        <li ng-repeat="item in list.items | filter : searchItem | orderBy : 'catagory'">
+          {{item.name}} {{item.catagory}}
+        </li>
+      </ul>
+    </ul>
   </div>
 </body>
+<script src="scripts/data.js"></script>
 <script src="scripts/script.js"></script>
 </html>

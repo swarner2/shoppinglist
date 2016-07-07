@@ -1,5 +1,8 @@
-var app = angular.module('myApp', []);
-
-app.controller('simpleController', [$scope, function($scope){
-  $scope.data = [1,2,3,4,5]
+var app = angular.module("shoppingList",[]);
+console.log(app)
+app.controller('getData', ['$scope', function($scope) {
+  $scope.data = data;
+  $scope.myFunc = function(searchItem){
+    console.log(searchItem)
+  }
 }])
